@@ -28,6 +28,16 @@ namespace AutoClicker
             _listener.HookKeyboard();
             Handler.a = SimpleStart;
             Handler.b = SimpleStop;
+            SimpleTimer.Value = Properties.Settings.Default.SimpleTimer;
+            SimpleRepeats.Value = Properties.Settings.Default.SimpleRepeats;
+            SimpleNonstop.Checked = Properties.Settings.Default.SimpleNonStop;
+            SimpleRepeat.Checked = !Properties.Settings.Default.SimpleNonStop;
+            SimpleLeftClick.Checked = !Properties.Settings.Default.SimpleClick;
+            SimpleRightClick.Checked = Properties.Settings.Default.SimpleClick;
+            SimpleMouseLocation.Checked = Properties.Settings.Default.SimpleMouse;
+            SimpleLocation.Checked = !Properties.Settings.Default.SimpleMouse;
+            SimpleX.Value = Properties.Settings.Default.SimpleMouseX;
+            SimpleY.Value = Properties.Settings.Default.SimpleMouseY;
         }
         void _listener_OnKeyPressed(object sender, KeyPressedArgs e)
         {
@@ -45,11 +55,6 @@ namespace AutoClicker
                 Application.Exit();
             }
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void PanelSwitch()
         {
             if (AdvancedMode.Checked)
@@ -58,6 +63,8 @@ namespace AutoClicker
                 SimplePanel.Visible = true;
                 AdvancedMode.Checked = false;
                 AdvancedMode.Text = "Switch to Advanced";
+                Properties.Settings.Default.Mode = false;
+                Properties.Settings.Default.Save();
             }
             else
             {
@@ -65,15 +72,22 @@ namespace AutoClicker
                 SimplePanel.Visible = false;
                 AdvancedMode.Checked = true;
                 AdvancedMode.Text = "Switch to Basic";
+                Properties.Settings.Default.Mode = true;
+                Properties.Settings.Default.Save();
             }
         }
 
-    private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+    private void AdvAfter_ValueChanged(object sender, EventArgs e)
         {
             
         }
+        private void SimpleRepeats_ValueChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SimpleRepeats = (int)SimpleRepeats.Value;
+            Properties.Settings.Default.Save();
+        }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AdvSave_Click(object sender, EventArgs e)
         {
             running = !running;
             Mouse.MousePoint Pos = Mouse.GetCursorPosition();
@@ -83,21 +97,10 @@ namespace AutoClicker
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void AdvNew_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void testToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            PanelSwitch();
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -118,14 +121,16 @@ namespace AutoClicker
 
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void SimpleMouseLoc_Click(object sender, EventArgs e)
         {
-
+            Properties.Settings.Default.SimpleMouse = true;
+            Properties.Settings.Default.Save();
         }
 
         private void SimpleTimer_ValueChanged(object sender, EventArgs e)
         {
-
+            Properties.Settings.Default.SimpleTimer = (int)SimpleTimer.Value;
+            Properties.Settings.Default.Save();
         }
 
         private void AdvancedMode_Click(object sender, EventArgs e)
@@ -179,9 +184,10 @@ namespace AutoClicker
             Handler.Start();
         }
 
-        private void SimpleRepeat_CheckedChanged(object sender, EventArgs e)
+        private void SimpleRepeat_Click(object sender, EventArgs e)
         {
-
+            Properties.Settings.Default.SimpleNonStop = false;
+            Properties.Settings.Default.Save();
         }
 
         private void SimpleKeybind_Click(object sender, EventArgs e)
@@ -207,13 +213,55 @@ namespace AutoClicker
 
         private void SimpleTimer_ValueChanged_1(object sender, EventArgs e)
         {
-
+            Properties.Settings.Default.SimpleTimer=(int)SimpleTimer.Value;
+            Properties.Settings.Default.Save();
         }
 
         private void SimpleStop_Click(object sender, EventArgs e)
         {
             Handler.Stop();
             Handler.Clear();
+        }
+
+        private void SimpleNonstop_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SimpleNonStop = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void SimpleLeftClick_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SimpleClick = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void SimpleRightClick_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SimpleClick = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void SimpleMouseLocation_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SimpleLocation_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SimpleMouse = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void SimpleX_ValueChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SimpleMouseX = (int)SimpleX.Value;
+            Properties.Settings.Default.Save();
+        }
+
+        private void SimpleY_ValueChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SimpleMouseY = (int)SimpleY.Value;
+            Properties.Settings.Default.Save();
         }
     }
     public class LowLevelKeyboardListener

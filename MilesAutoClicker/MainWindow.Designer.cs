@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mscount = new System.Windows.Forms.NumericUpDown();
-            this.Savebtn = new System.Windows.Forms.Button();
-            this.AddNewF = new System.Windows.Forms.Button();
-            this.RemoveF = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.AdvAfter = new System.Windows.Forms.NumericUpDown();
+            this.AdvSaveBTN = new System.Windows.Forms.Button();
+            this.AdvNewF = new System.Windows.Forms.Button();
+            this.AdvRemoveF = new System.Windows.Forms.Button();
+            this.AdvList = new System.Windows.Forms.ListBox();
             this.Menus = new System.Windows.Forms.MenuStrip();
             this.AdvancedMode = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.AdvancedPanel = new System.Windows.Forms.Panel();
             this.SimplePanel = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.SimpleRightClick = new System.Windows.Forms.RadioButton();
+            this.SimpleLeftClick = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.SimpleRepeats = new System.Windows.Forms.NumericUpDown();
             this.SimpleRepeat = new System.Windows.Forms.RadioButton();
@@ -56,14 +59,12 @@
             this.SimpleStart = new System.Windows.Forms.Button();
             this.SimpleStop = new System.Windows.Forms.Button();
             this.CentralPanel = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.SimpleLeftClick = new System.Windows.Forms.RadioButton();
-            this.SimpleRightClick = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.mscount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AdvAfter)).BeginInit();
             this.Menus.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.AdvancedPanel.SuspendLayout();
             this.SimplePanel.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SimpleRepeats)).BeginInit();
             this.panel2.SuspendLayout();
@@ -72,59 +73,58 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SimpleTimer)).BeginInit();
             this.CentralPanel.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // mscount
+            // AdvAfter
             // 
-            this.mscount.Location = new System.Drawing.Point(11, 44);
-            this.mscount.Name = "mscount";
-            this.mscount.Size = new System.Drawing.Size(120, 20);
-            this.mscount.TabIndex = 0;
-            this.mscount.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.AdvAfter.Location = new System.Drawing.Point(11, 44);
+            this.AdvAfter.Name = "AdvAfter";
+            this.AdvAfter.Size = new System.Drawing.Size(120, 20);
+            this.AdvAfter.TabIndex = 0;
+            this.AdvAfter.ValueChanged += new System.EventHandler(this.AdvAfter_ValueChanged);
             // 
-            // Savebtn
+            // AdvSaveBTN
             // 
-            this.Savebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Savebtn.Location = new System.Drawing.Point(12, 381);
-            this.Savebtn.Name = "Savebtn";
-            this.Savebtn.Size = new System.Drawing.Size(75, 23);
-            this.Savebtn.TabIndex = 1;
-            this.Savebtn.Text = "Save";
-            this.Savebtn.UseVisualStyleBackColor = true;
-            this.Savebtn.Click += new System.EventHandler(this.button1_Click);
+            this.AdvSaveBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AdvSaveBTN.Location = new System.Drawing.Point(12, 381);
+            this.AdvSaveBTN.Name = "AdvSaveBTN";
+            this.AdvSaveBTN.Size = new System.Drawing.Size(75, 23);
+            this.AdvSaveBTN.TabIndex = 1;
+            this.AdvSaveBTN.Text = "Save";
+            this.AdvSaveBTN.UseVisualStyleBackColor = true;
+            this.AdvSaveBTN.Click += new System.EventHandler(this.AdvSave_Click);
             // 
-            // AddNewF
+            // AdvNewF
             // 
-            this.AddNewF.AccessibleName = "AddNew";
-            this.AddNewF.Location = new System.Drawing.Point(3, 3);
-            this.AddNewF.Name = "AddNewF";
-            this.AddNewF.Size = new System.Drawing.Size(128, 23);
-            this.AddNewF.TabIndex = 3;
-            this.AddNewF.Text = "Add New Function";
-            this.AddNewF.UseVisualStyleBackColor = true;
-            this.AddNewF.Click += new System.EventHandler(this.button2_Click);
+            this.AdvNewF.AccessibleName = "AddNew";
+            this.AdvNewF.Location = new System.Drawing.Point(3, 3);
+            this.AdvNewF.Name = "AdvNewF";
+            this.AdvNewF.Size = new System.Drawing.Size(128, 23);
+            this.AdvNewF.TabIndex = 3;
+            this.AdvNewF.Text = "Add New Function";
+            this.AdvNewF.UseVisualStyleBackColor = true;
+            this.AdvNewF.Click += new System.EventHandler(this.AdvNew_Click);
             // 
-            // RemoveF
+            // AdvRemoveF
             // 
-            this.RemoveF.AccessibleName = "RemoveFunction";
-            this.RemoveF.Location = new System.Drawing.Point(137, 3);
-            this.RemoveF.Name = "RemoveF";
-            this.RemoveF.Size = new System.Drawing.Size(128, 23);
-            this.RemoveF.TabIndex = 4;
-            this.RemoveF.Text = "Remove Function";
-            this.RemoveF.UseVisualStyleBackColor = true;
+            this.AdvRemoveF.AccessibleName = "RemoveFunction";
+            this.AdvRemoveF.Location = new System.Drawing.Point(137, 3);
+            this.AdvRemoveF.Name = "AdvRemoveF";
+            this.AdvRemoveF.Size = new System.Drawing.Size(128, 23);
+            this.AdvRemoveF.TabIndex = 4;
+            this.AdvRemoveF.Text = "Remove Function";
+            this.AdvRemoveF.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // AdvList
             // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(288, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(208, 424);
-            this.listBox1.TabIndex = 5;
+            this.AdvList.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.AdvList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AdvList.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AdvList.FormattingEnabled = true;
+            this.AdvList.Location = new System.Drawing.Point(288, 0);
+            this.AdvList.Name = "AdvList";
+            this.AdvList.Size = new System.Drawing.Size(208, 424);
+            this.AdvList.TabIndex = 5;
             // 
             // Menus
             // 
@@ -135,7 +135,6 @@
             this.Menus.Size = new System.Drawing.Size(496, 24);
             this.Menus.TabIndex = 6;
             this.Menus.Text = "menuStrip1";
-            this.Menus.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // AdvancedMode
             // 
@@ -169,11 +168,11 @@
             // 
             this.AdvancedPanel.AutoSize = true;
             this.AdvancedPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AdvancedPanel.Controls.Add(this.listBox1);
-            this.AdvancedPanel.Controls.Add(this.mscount);
-            this.AdvancedPanel.Controls.Add(this.RemoveF);
-            this.AdvancedPanel.Controls.Add(this.Savebtn);
-            this.AdvancedPanel.Controls.Add(this.AddNewF);
+            this.AdvancedPanel.Controls.Add(this.AdvList);
+            this.AdvancedPanel.Controls.Add(this.AdvAfter);
+            this.AdvancedPanel.Controls.Add(this.AdvRemoveF);
+            this.AdvancedPanel.Controls.Add(this.AdvSaveBTN);
+            this.AdvancedPanel.Controls.Add(this.AdvNewF);
             this.AdvancedPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdvancedPanel.Location = new System.Drawing.Point(0, 0);
             this.AdvancedPanel.Name = "AdvancedPanel";
@@ -197,6 +196,39 @@
             this.SimplePanel.Size = new System.Drawing.Size(496, 424);
             this.SimplePanel.TabIndex = 12;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.SimpleRightClick);
+            this.panel4.Controls.Add(this.SimpleLeftClick);
+            this.panel4.Location = new System.Drawing.Point(166, 7);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(166, 100);
+            this.panel4.TabIndex = 8;
+            // 
+            // SimpleRightClick
+            // 
+            this.SimpleRightClick.AutoSize = true;
+            this.SimpleRightClick.Location = new System.Drawing.Point(4, 25);
+            this.SimpleRightClick.Name = "SimpleRightClick";
+            this.SimpleRightClick.Size = new System.Drawing.Size(76, 17);
+            this.SimpleRightClick.TabIndex = 1;
+            this.SimpleRightClick.Text = "Right Click";
+            this.SimpleRightClick.UseVisualStyleBackColor = true;
+            this.SimpleRightClick.Click += new System.EventHandler(this.SimpleRightClick_Click);
+            // 
+            // SimpleLeftClick
+            // 
+            this.SimpleLeftClick.AutoSize = true;
+            this.SimpleLeftClick.Checked = true;
+            this.SimpleLeftClick.Location = new System.Drawing.Point(4, 5);
+            this.SimpleLeftClick.Name = "SimpleLeftClick";
+            this.SimpleLeftClick.Size = new System.Drawing.Size(69, 17);
+            this.SimpleLeftClick.TabIndex = 0;
+            this.SimpleLeftClick.TabStop = true;
+            this.SimpleLeftClick.Text = "Left Click";
+            this.SimpleLeftClick.UseVisualStyleBackColor = true;
+            this.SimpleLeftClick.Click += new System.EventHandler(this.SimpleLeftClick_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.SimpleRepeats);
@@ -219,7 +251,7 @@
             0,
             0,
             0});
-            this.SimpleRepeats.ValueChanged += new System.EventHandler(this.SimpleTimer_ValueChanged);
+            this.SimpleRepeats.ValueChanged += new System.EventHandler(this.SimpleRepeats_ValueChanged);
             // 
             // SimpleRepeat
             // 
@@ -232,7 +264,7 @@
             this.SimpleRepeat.TabStop = true;
             this.SimpleRepeat.Text = "Repeats";
             this.SimpleRepeat.UseVisualStyleBackColor = true;
-            this.SimpleRepeat.CheckedChanged += new System.EventHandler(this.SimpleRepeat_CheckedChanged);
+            this.SimpleRepeat.Click += new System.EventHandler(this.SimpleRepeat_Click);
             // 
             // SimpleNonstop
             // 
@@ -243,6 +275,7 @@
             this.SimpleNonstop.TabIndex = 5;
             this.SimpleNonstop.Text = "Non-stop";
             this.SimpleNonstop.UseVisualStyleBackColor = true;
+            this.SimpleNonstop.Click += new System.EventHandler(this.SimpleNonstop_Click);
             // 
             // panel2
             // 
@@ -278,6 +311,7 @@
             this.SimpleY.Name = "SimpleY";
             this.SimpleY.Size = new System.Drawing.Size(69, 20);
             this.SimpleY.TabIndex = 3;
+            this.SimpleY.ValueChanged += new System.EventHandler(this.SimpleY_ValueChanged);
             // 
             // SimpleX
             // 
@@ -290,6 +324,7 @@
             this.SimpleX.Name = "SimpleX";
             this.SimpleX.Size = new System.Drawing.Size(69, 20);
             this.SimpleX.TabIndex = 2;
+            this.SimpleX.ValueChanged += new System.EventHandler(this.SimpleX_ValueChanged);
             // 
             // SimpleLocation
             // 
@@ -300,6 +335,7 @@
             this.SimpleLocation.TabIndex = 1;
             this.SimpleLocation.Text = "At location (X, Y Absolute)";
             this.SimpleLocation.UseVisualStyleBackColor = true;
+            this.SimpleLocation.Click += new System.EventHandler(this.SimpleLocation_Click);
             // 
             // SimpleMouseLocation
             // 
@@ -312,7 +348,8 @@
             this.SimpleMouseLocation.TabStop = true;
             this.SimpleMouseLocation.Text = "Mouse Location";
             this.SimpleMouseLocation.UseVisualStyleBackColor = true;
-            this.SimpleMouseLocation.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.SimpleMouseLocation.CheckedChanged += new System.EventHandler(this.SimpleMouseLocation_CheckedChanged);
+            this.SimpleMouseLocation.Click += new System.EventHandler(this.SimpleMouseLoc_Click);
             // 
             // panel1
             // 
@@ -402,37 +439,6 @@
             this.CentralPanel.Size = new System.Drawing.Size(496, 424);
             this.CentralPanel.TabIndex = 6;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.SimpleRightClick);
-            this.panel4.Controls.Add(this.SimpleLeftClick);
-            this.panel4.Location = new System.Drawing.Point(166, 7);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(166, 100);
-            this.panel4.TabIndex = 8;
-            // 
-            // SimpleLeftClick
-            // 
-            this.SimpleLeftClick.AutoSize = true;
-            this.SimpleLeftClick.Checked = true;
-            this.SimpleLeftClick.Location = new System.Drawing.Point(4, 5);
-            this.SimpleLeftClick.Name = "SimpleLeftClick";
-            this.SimpleLeftClick.Size = new System.Drawing.Size(69, 17);
-            this.SimpleLeftClick.TabIndex = 0;
-            this.SimpleLeftClick.TabStop = true;
-            this.SimpleLeftClick.Text = "Left Click";
-            this.SimpleLeftClick.UseVisualStyleBackColor = true;
-            // 
-            // SimpleRightClick
-            // 
-            this.SimpleRightClick.AutoSize = true;
-            this.SimpleRightClick.Location = new System.Drawing.Point(4, 25);
-            this.SimpleRightClick.Name = "SimpleRightClick";
-            this.SimpleRightClick.Size = new System.Drawing.Size(76, 17);
-            this.SimpleRightClick.TabIndex = 1;
-            this.SimpleRightClick.Text = "Right Click";
-            this.SimpleRightClick.UseVisualStyleBackColor = true;
-            // 
             // AutoClicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,7 +453,7 @@
             this.Name = "AutoClicker";
             this.Text = "MilesAutoClicker";
             this.Load += new System.EventHandler(this.AutoClicker_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.mscount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AdvAfter)).EndInit();
             this.Menus.ResumeLayout(false);
             this.Menus.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -455,6 +461,8 @@
             this.AdvancedPanel.ResumeLayout(false);
             this.SimplePanel.ResumeLayout(false);
             this.SimplePanel.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SimpleRepeats)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -466,8 +474,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.SimpleTimer)).EndInit();
             this.CentralPanel.ResumeLayout(false);
             this.CentralPanel.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,11 +481,11 @@
 
         #endregion
 
-        public System.Windows.Forms.NumericUpDown mscount;
-        private System.Windows.Forms.Button Savebtn;
-        private System.Windows.Forms.Button AddNewF;
-        private System.Windows.Forms.Button RemoveF;
-        private System.Windows.Forms.ListBox listBox1;
+        public System.Windows.Forms.NumericUpDown AdvAfter;
+        private System.Windows.Forms.Button AdvSaveBTN;
+        private System.Windows.Forms.Button AdvNewF;
+        private System.Windows.Forms.Button AdvRemoveF;
+        private System.Windows.Forms.ListBox AdvList;
         private System.Windows.Forms.MenuStrip Menus;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Panel AdvancedPanel;
